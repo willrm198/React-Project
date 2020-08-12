@@ -1,6 +1,6 @@
 import React from 'react';
 import {Card} from 'reactstrap';
-import {UserDisplay} from './UserDisplay';
+import UserDisplay from './UserDisplay';
 
 const UserProfile = () => {
 
