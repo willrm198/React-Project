@@ -1,28 +1,39 @@
 import React from 'react';
+import {
+    Collapse,
+    Navbar,
+    NavbarToggler,
+    NavbarBrand,
+    Nav,
+    NavItem,
+    NavLink,
+    UncontrolledDropdown,
+    DropdownToggle,
+    DropdownMenu,
+    DropdownItem,
+    NavbarText
+  } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
     return (
-        <div role="tabpanel" >
-            <ul class="nav nav-tabs float-right" role="tablist">
-            <li class="nav-item">
-                    <a class="nav-link active" href="#Home" role="tab" data-toggle="tab">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="#feed" role="tab" data-toggle="tab">Feed</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#closet" role="tab" data-toggle="tab">Closet</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#account" role="tab" data-toggle="tab">Account</a>
-                </li>
-            </ul>
-            <div class="tab-content tab-bump">
-                <div id="home1">
-                    <p>SNEAK-PEEK</p>
-                </div>
-            </div>
-        </div>
+        <div>
+      <Navbar color="light" light expand="md">
+        <NavbarBrand href="/" className="ml-auto">SneakPeek</NavbarBrand>
+          <Nav navbar>
+            <NavItem>
+              <NavLink href="/components/">Feed</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="https://github.com/reactstrap/reactstrap">Closet</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink tag={Link} to="/profile">Profile</NavLink>
+            </NavItem>
+          </Nav>
+      </Navbar>
+    </div>
+ 
     );
 }
 
