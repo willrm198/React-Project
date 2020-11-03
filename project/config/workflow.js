@@ -1,5 +1,5 @@
 module.exports = config => {
-  config.development.open = '/';
+  config.development.open = '/#/home';
 
   config.development.hotLoader = {
     enabled: true,

@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Card, Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import ProfileNav from '../Navigation/ProfileNav';
 
-const UserDisplay = () => {
+const ShippingDisplay = () => {
   return (
     <Card className="container">
       <Row style={{ height: 'auto' }}>
@@ -14,28 +14,32 @@ const UserDisplay = () => {
           <Card className="shadow p-3 mb-5 bg-white rounded">
             <Form>
               <FormGroup>
+                <Label>Name</Label>
+                <Input type="text" value="Janet Doerby" />
+              </FormGroup>
+              <FormGroup>
+                <Label>Address Line 1</Label>
+                <Input type="text" value="1234 Jurassic pk" />
+              </FormGroup>
+              <FormGroup>
+                <Label>Address Line 2</Label>
+                <Input type="text" value="1234 Jurassic pk" />
+              </FormGroup>
+              <FormGroup>
                 <Row>
                   <Col>
-                    <Label>First Name</Label>
-                    <Input type="text" value="Janet" />
+                    <Label>City</Label>
+                    <Input type="text" value="Jacksonville" />
                   </Col>
                   <Col>
-                    <Label>Last Name</Label>
-                    <Input type="text" value="Doerby" />
+                    <Label>State</Label>
+                    <Input type="text" value="Florida" />
+                  </Col>
+                  <Col>
+                    <Label>Postal Code</Label>
+                    <Input type="number" value="32245" />
                   </Col>
                 </Row>
-              </FormGroup>
-              <FormGroup>
-                <Label>Username</Label>
-                <Input type="text" value="jdoe" />
-              </FormGroup>
-              <FormGroup>
-                <Label>Email</Label>
-                <Input type="email" value="jdoe@gmail.com" readOnly />
-              </FormGroup>
-              <FormGroup>
-                <Label>Date of Birth</Label>
-                <Input type="date" />
               </FormGroup>
             </Form>
             <div style={{ alignSelf: 'center', paddingTop: 50 }}>
@@ -48,4 +52,4 @@ const UserDisplay = () => {
   );
 };
 
-export default UserDisplay;
+export default ShippingDisplay;
