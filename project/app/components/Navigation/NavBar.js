@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const NavBar = () => {
   return (
     <div>
-      <Navbar color="light" light expand="md">
+      <Navbar color="light" light expand="md" style={{ height: 40 }}>
         <NavbarBrand tag={Link} to="/home" className="ml-auto">
           SneakPeek
         </NavbarBrand>

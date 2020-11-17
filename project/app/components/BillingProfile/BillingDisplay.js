@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card, Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
+import { Card, Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import ProfileNav from '../Navigation/ProfileNav';
 
 const BillingDisplay = () => {
@@ -58,9 +58,6 @@ const BillingDisplay = () => {
                 </Row>
               </FormGroup>
             </Form>
-            <div style={{ alignSelf: 'center', paddingTop: 50 }}>
-              <Button color="secondary">Submit Changes</Button>
-            </div>
           </Card>
         </Col>
       </Row>

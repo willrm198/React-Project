@@ -1,50 +1,51 @@
 import React from 'react';
-import { Button, Card, Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
-import ProfileNav from '../Navigation/ProfileNav';
+import { Col, FormGroup, Row } from 'reactstrap';
+import { Form, Field } from '@availity/form';
+import * as yup from 'yup';
+import { avDate } from '@availity/yup';
+import { DateField } from '@availity/date';
 
 const UserDisplay = () => {
   return (
-    <Card className="container">
-      <Row style={{ height: 'auto' }}>
-        <Col className="col-lg-3">
-          <ProfileNav />
-        </Col>
+    <div className="container ml-2">
+      <a id="profile"></a>
+      <h4>Profile</h4>
+      <Form
+        initialValues={{
+          fname: 'Janet',
+          lname: 'Doerby',
+          username: 'jdoe',
+          email: 'jdoe@gmail.com',
+          dob: '2020-11-17',
+        }}
+        validationSchema={yup.object().shape({
+          fname: yup.string().required(),
+          lname: yup.string().required(),
+          username: yup.string().required(),
+          email: yup.string().required(),
+          dob: avDate().required(),
+        })}
+      >
+        <FormGroup>
+          <Row>
+            <Col>
+              <Field name="fname" type="text" label="First Name" />
+            </Col>
+            <Col>
+              <Field name="lname" type="text" label="Last Name" />
+            </Col>
+          </Row>
+        </FormGroup>
 
-        <Col style={{ paddingTop: 115 }}>
-          <Card className="shadow p-3 mb-5 bg-white rounded">
-            <Form>
-              <FormGroup>
-                <Row>
-                  <Col>
-                    <Label>First Name</Label>
-                    <Input type="text" value="Janet" />
-                  </Col>
-                  <Col>
-                    <Label>Last Name</Label>
-                    <Input type="text" value="Doerby" />
-                  </Col>
-                </Row>
-              </FormGroup>
-              <FormGroup>
-                <Label>Username</Label>
-                <Input type="text" value="jdoe" />
-              </FormGroup>
-              <FormGroup>
-                <Label>Email</Label>
-                <Input type="email" value="jdoe@gmail.com" readOnly />
-              </FormGroup>
-              <FormGroup>
-                <Label>Date of Birth</Label>
-                <Input type="date" />
-              </FormGroup>
-            </Form>
-            <div style={{ alignSelf: 'center', paddingTop: 50 }}>
-              <Button color="secondary">Submit Changes</Button>
-            </div>
-          </Card>
-        </Col>
-      </Row>
-    </Card>
+        <Field name="username" type="text" label="Username" />
+
+        <FormGroup>
+          <Field name="email" type="email" label="Email" readOnly />
+        </FormGroup>
+
+        <DateField name="dob" label="Date of Birth" />
+      </Form>
+    </div>
   );
 };
 
