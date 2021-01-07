@@ -1,43 +1,52 @@
 import React from 'react';
-import { Row, Col, Card} from 'reactstrap';
+import { Col, FormGroup, Row } from 'reactstrap';
+import { Form, Field } from '@availity/form';
+import * as yup from 'yup';
+import { avDate } from '@availity/yup';
+import { DateField } from '@availity/date';
 
 const UserDisplay = () => {
-    return (
-        <Card>
-            <Row>
-                <Col sm='2' >
-                    <div >
-                        User Avatar
-                    </div>
-                    <div class="badge badge-light badge-block">
-                        <a href="#" class="badge badge-light">Billing</a>
-                    </div>
-                    <div class="badge badge-light badge-block">
-                        <a href="#" class="badge badge-light">Shipping</a>
-                    </div>
-                    <div class="badge badge-light badge-block">
-                        <a href="#" class="badge badge-light">Security</a>
-                    </div>
-                </Col>
-                <Col sm='10'>
-                    <div>
-                        First Name: James
-                    </div>
-                    <div>
-                        Last Name: Baldwin
-                    </div>
-                    <div>
-                        Email: JBaldwin@gmail.com
-                    </div>
-                </Col>
-            </Row>
-            <Row>
-                <div>
-                    <Button>Edit Profile</Button>
-                </div>
-            </Row>
-        </Card>
-    );
-}
+  return (
+    <div className="container ml-2">
+      <a id="profile"></a>
+      <h4>Profile</h4>
+      <Form
+        initialValues={{
+          fname: 'Janet',
+          lname: 'Doerby',
+          username: 'jdoe',
+          email: 'jdoe@gmail.com',
+          dob: '2020-11-17',
+        }}
+        validationSchema={yup.object().shape({
+          fname: yup.string().required(),
+          lname: yup.string().required(),
+          username: yup.string().required(),
+          email: yup.string().required(),
+          dob: avDate().required(),
+        })}
+      >
+        <FormGroup>
+          <Row>
+            <Col>
+              <Field name="fname" type="text" label="First Name" />
+            </Col>
+            <Col>
+              <Field name="lname" type="text" label="Last Name" />
+            </Col>
+          </Row>
+        </FormGroup>
+
+        <Field name="username" type="text" label="Username" />
+
+        <FormGroup>
+          <Field name="email" type="email" label="Email" readOnly />
+        </FormGroup>
+
+        <DateField name="dob" label="Date of Birth" />
+      </Form>
+    </div>
+  );
+};
 
 export default UserDisplay;
