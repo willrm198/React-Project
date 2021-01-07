@@ -1,7 +1,15 @@
+import { getUserByUsername } from '../services/UserApi';
+
 const createAppStore = () => ({
   isFlippable: false,
+  user: {},
+  username: '',
   loading: false,
   memberInfo: undefined,
+  async init() {
+    this.username = '';
+    this.user = await getUserByUsername(this.username);
+  },
   setIsFlippable(value = false) {
     this.isFlippable = value;
   },
